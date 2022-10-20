@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8719093D290161D6001D383C /* FitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719093C290161D6001D383C /* FitnessApp.swift */; };
-		8719093F290161D6001D383C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719093E290161D6001D383C /* ContentView.swift */; };
+		8719093F290161D6001D383C /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719093E290161D6001D383C /* LandingView.swift */; };
 		87190941290161D7001D383C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87190940290161D7001D383C /* Assets.xcassets */; };
 		87190944290161D7001D383C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87190943290161D7001D383C /* Preview Assets.xcassets */; };
 		87190946290161D7001D383C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87190945290161D7001D383C /* Persistence.swift */; };
@@ -16,6 +16,8 @@
 		87190953290161D7001D383C /* FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87190952290161D7001D383C /* FitnessTests.swift */; };
 		8719095D290161D7001D383C /* FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719095C290161D7001D383C /* FitnessUITests.swift */; };
 		8719095F290161D7001D383C /* FitnessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719095E290161D7001D383C /* FitnessUITestsLaunchTests.swift */; };
+		8719096E29016829001D383C /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719096D29016829001D383C /* PrimaryButtonStyle.swift */; };
+		87190971290168F2001D383C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87190970290168F2001D383C /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 /* Begin PBXFileReference section */
 		87190939290161D6001D383C /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8719093C290161D6001D383C /* FitnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessApp.swift; sourceTree = "<group>"; };
-		8719093E290161D6001D383C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8719093E290161D6001D383C /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		87190940290161D7001D383C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87190943290161D7001D383C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		87190945290161D7001D383C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		87190958290161D7001D383C /* FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8719095C290161D7001D383C /* FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessUITests.swift; sourceTree = "<group>"; };
 		8719095E290161D7001D383C /* FitnessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8719096D29016829001D383C /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		87190970290168F2001D383C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				8719093C290161D6001D383C /* FitnessApp.swift */,
-				8719093E290161D6001D383C /* ContentView.swift */,
+				8719096B290167EC001D383C /* Views */,
+				8719096F290168D1001D383C /* Extensions */,
 				87190940290161D7001D383C /* Assets.xcassets */,
 				87190945290161D7001D383C /* Persistence.swift */,
 				87190947290161D7001D383C /* Fitness.xcdatamodeld */,
@@ -131,6 +136,31 @@
 				8719095E290161D7001D383C /* FitnessUITestsLaunchTests.swift */,
 			);
 			path = FitnessUITests;
+			sourceTree = "<group>";
+		};
+		8719096B290167EC001D383C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8719096C29016808001D383C /* Custom */,
+				8719093E290161D6001D383C /* LandingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8719096C29016808001D383C /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				8719096D29016829001D383C /* PrimaryButtonStyle.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		8719096F290168D1001D383C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				87190970290168F2001D383C /* Color+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				87190949290161D7001D383C /* Fitness.xcdatamodeld in Sources */,
+				87190971290168F2001D383C /* Color+Extension.swift in Sources */,
+				8719096E29016829001D383C /* PrimaryButtonStyle.swift in Sources */,
 				87190946290161D7001D383C /* Persistence.swift in Sources */,
-				8719093F290161D6001D383C /* ContentView.swift in Sources */,
+				8719093F290161D6001D383C /* LandingView.swift in Sources */,
 				8719093D290161D6001D383C /* FitnessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
