@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Combine
+
+typealias UserId = String
 
 final class CreateChallengeViewModel: ObservableObject {
     @Published var dropdowns: [ChallengePartViewModel] = [
@@ -15,8 +18,12 @@ final class CreateChallengeViewModel: ObservableObject {
         .init(type: .length),
     ]
     
+    private let userService: UserServiceProtocol
+    private var cancellables: [AnyCancellable] = []
+    
     enum Action {
         case selectOption(index: Int)
+        case createChallenge
     }
     
     var selectedDropdownIndex: Int? {
@@ -34,6 +41,10 @@ final class CreateChallengeViewModel: ObservableObject {
         return dropdowns[selectedDropdownIndex].options
     }
     
+    init(userService: UserServiceProtocol = UserService()) {
+        self.userService = userService
+    }
+    
     func send(action: Action) {
         switch action {
         case let .selectOption(index):
@@ -43,6 +54,18 @@ final class CreateChallengeViewModel: ObservableObject {
             clearSelectedOption()
             dropdowns[selectedDropdownIndex].options[index].isSelected = true
             clearSelectedDropdown()
+        case .createChallenge:
+            currentUserId().sink { completion in
+                switch completion {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                case .finished:
+                    print("completed")
+                }
+            } receiveValue: { userId in
+                print("retrieved userId = \(userId)")
+            }.store(in: &cancellables)
+            
         }
     }
     
@@ -61,7 +84,25 @@ final class CreateChallengeViewModel: ObservableObject {
             return
         }
         
-        dropdowns[selectedDropdownIndex].isSelected = false 
+        dropdowns[selectedDropdownIndex].isSelected = false
+    }
+    
+    private func currentUserId() -> AnyPublisher<String, Error> {
+        print("getting userId")
+        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, Error> in
+            if let userId = user?.uid {
+                print("user is logged in.......")
+                return Just(userId)
+                    .setFailureType(to: Error.self)
+                    .eraseToAnyPublisher()
+            } else {
+                print("user is being logged in anonymously.......")
+                return self.userService
+                    .signInAnonymously()
+                    .map { $0.uid }
+                    .eraseToAnyPublisher()
+            }
+        }.eraseToAnyPublisher()
     }
 }
 

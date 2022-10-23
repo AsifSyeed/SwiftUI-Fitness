@@ -25,6 +25,7 @@
 		8719097C2901799E001D383C /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719097B2901799E001D383C /* CreateChallengeViewModel.swift */; };
 		8719097E29017A1F001D383C /* DropdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719097D29017A1F001D383C /* DropdownItemProtocol.swift */; };
 		8755285729058DFE007129ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8755285629058DFE007129ED /* GoogleService-Info.plist */; };
+		8755285A29059669007129ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755285929059669007129ED /* UserService.swift */; };
 		8AB1BA36492D83723320E20E /* Pods_Fitness_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5837D41F3D21BEC5CBC7B /* Pods_Fitness_FitnessUITests.framework */; };
 		EFEE154B962B0DD4934696F5 /* Pods_FitnessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C67881B7D3E34EC3A219481 /* Pods_FitnessTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		8719097B2901799E001D383C /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		8719097D29017A1F001D383C /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
 		8755285629058DFE007129ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8755285929059669007129ED /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A227DF2F86BF2CA6E969F271 /* Pods-Fitness-FitnessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness-FitnessUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fitness-FitnessUITests/Pods-Fitness-FitnessUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C520B11C2AD59C11781B7F54 /* Pods-FitnessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTests.debug.xcconfig"; path = "Target Support Files/Pods-FitnessTests/Pods-FitnessTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEDF3998FF5EB7881D836B71 /* Pods-Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Fitness/Pods-Fitness.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,9 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				8719093C290161D6001D383C /* FitnessApp.swift */,
-				8719096B290167EC001D383C /* Views */,
 				8719097A29017985001D383C /* Models */,
+				8719096B290167EC001D383C /* Views */,
 				8719097929017963001D383C /* ViewModels */,
+				875528582905964C007129ED /* Services */,
 				8719096F290168D1001D383C /* Extensions */,
 				8755285529058DFE007129ED /* Supporting Files */,
 				87190940290161D7001D383C /* Assets.xcassets */,
@@ -240,6 +243,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		875528582905964C007129ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8755285929059669007129ED /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AECCA0009FCBAFE2541AEF2A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +261,6 @@
 				C520B11C2AD59C11781B7F54 /* Pods-FitnessTests.debug.xcconfig */,
 				2EDD8E6A98BA9C48D9851DE9 /* Pods-FitnessTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -501,6 +511,7 @@
 				8719097C2901799E001D383C /* CreateChallengeViewModel.swift in Sources */,
 				8719097829017655001D383C /* RemindView.swift in Sources */,
 				87190973290170CD001D383C /* CreateView.swift in Sources */,
+				8755285A29059669007129ED /* UserService.swift in Sources */,
 				8719097629017153001D383C /* DropDownView.swift in Sources */,
 				8719093F290161D6001D383C /* LandingView.swift in Sources */,
 				8719093D290161D6001D383C /* FitnessApp.swift in Sources */,
