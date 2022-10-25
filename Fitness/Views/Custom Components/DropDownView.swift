@@ -9,6 +9,18 @@ import SwiftUI
 
 struct DropDownView<T: DropdownItemProtocol>: View {
     @Binding var viewModel: T
+    
+    var actionSheet: ActionSheet {
+        ActionSheet(
+            title: Text("Select"),
+            buttons: viewModel.options.map { option in
+                return ActionSheet.Button.default(Text(option.formatted)) {
+                    viewModel.selectedOption = option
+                }
+            }
+        )
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -27,6 +39,10 @@ struct DropDownView<T: DropdownItemProtocol>: View {
                         .font(.system(size: 24, weight: .medium))
                 }
             }.buttonStyle(PrimaryButtonStyle(fillColor: .primaryButton))
-        }.padding(15)
+        }.actionSheet(isPresented: $viewModel.isSelected) {
+            actionSheet
+            
+        }
+        .padding(15)
     }
 }
