@@ -24,6 +24,8 @@
 		8719097829017655001D383C /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719097729017655001D383C /* RemindView.swift */; };
 		8719097C2901799E001D383C /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719097B2901799E001D383C /* CreateChallengeViewModel.swift */; };
 		8719097E29017A1F001D383C /* DropdownItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719097D29017A1F001D383C /* DropdownItemProtocol.swift */; };
+		8744268E2907D6940045CC3A /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744268D2907D6940045CC3A /* Challenge.swift */; };
+		874426902907D76C0045CC3A /* CreateChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744268F2907D76C0045CC3A /* CreateChallengeService.swift */; };
 		8755285729058DFE007129ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8755285629058DFE007129ED /* GoogleService-Info.plist */; };
 		8755285A29059669007129ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755285929059669007129ED /* UserService.swift */; };
 		8AB1BA36492D83723320E20E /* Pods_Fitness_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5837D41F3D21BEC5CBC7B /* Pods_Fitness_FitnessUITests.framework */; };
@@ -71,6 +73,8 @@
 		8719097729017655001D383C /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
 		8719097B2901799E001D383C /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		8719097D29017A1F001D383C /* DropdownItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownItemProtocol.swift; sourceTree = "<group>"; };
+		8744268D2907D6940045CC3A /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		8744268F2907D76C0045CC3A /* CreateChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeService.swift; sourceTree = "<group>"; };
 		8755285629058DFE007129ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8755285929059669007129ED /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A227DF2F86BF2CA6E969F271 /* Pods-Fitness-FitnessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness-FitnessUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fitness-FitnessUITests/Pods-Fitness-FitnessUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 		8719097A29017985001D383C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8744268D2907D6940045CC3A /* Challenge.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				8755285929059669007129ED /* UserService.swift */,
+				8744268F2907D76C0045CC3A /* CreateChallengeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -504,7 +510,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87190949290161D7001D383C /* Fitness.xcdatamodeld in Sources */,
+				8744268E2907D6940045CC3A /* Challenge.swift in Sources */,
 				87190971290168F2001D383C /* Color+Extension.swift in Sources */,
+				874426902907D76C0045CC3A /* CreateChallengeService.swift in Sources */,
 				8719096E29016829001D383C /* PrimaryButtonStyle.swift in Sources */,
 				87190946290161D7001D383C /* Persistence.swift in Sources */,
 				8719097E29017A1F001D383C /* DropdownItemProtocol.swift in Sources */,
