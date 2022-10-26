@@ -11,6 +11,7 @@
 		87144441290909AE007EBBA2 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87144440290909AE007EBBA2 /* ChallengeListView.swift */; };
 		87144443290909C1007EBBA2 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87144442290909C1007EBBA2 /* ChallengeListViewModel.swift */; };
 		87144445290912C2007EBBA2 /* QuerySnapshotPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87144444290912C2007EBBA2 /* QuerySnapshotPublisher.swift */; };
+		8714444729092123007EBBA2 /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8714444629092123007EBBA2 /* ChallengeItemViewModel.swift */; };
 		8719093D290161D6001D383C /* FitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719093C290161D6001D383C /* FitnessApp.swift */; };
 		8719093F290161D6001D383C /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719093E290161D6001D383C /* LandingView.swift */; };
 		87190941290161D7001D383C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87190940290161D7001D383C /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		87144440290909AE007EBBA2 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
 		87144442290909C1007EBBA2 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
 		87144444290912C2007EBBA2 /* QuerySnapshotPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotPublisher.swift; sourceTree = "<group>"; };
+		8714444629092123007EBBA2 /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
 		87190939290161D6001D383C /* Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8719093C290161D6001D383C /* FitnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessApp.swift; sourceTree = "<group>"; };
 		8719093E290161D6001D383C /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 				7C67881B7D3E34EC3A219481 /* Pods_FitnessTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		871444482909212D007EBBA2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8719097D29017A1F001D383C /* DropdownItemProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		87190930290161D6001D383C = {
@@ -242,9 +252,10 @@
 		8719097929017963001D383C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				871444482909212D007EBBA2 /* Protocols */,
 				8719097B2901799E001D383C /* CreateChallengeViewModel.swift */,
 				87144442290909C1007EBBA2 /* ChallengeListViewModel.swift */,
-				8719097D29017A1F001D383C /* DropdownItemProtocol.swift */,
+				8714444629092123007EBBA2 /* ChallengeItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -535,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8714444729092123007EBBA2 /* ChallengeItemViewModel.swift in Sources */,
 				87190949290161D7001D383C /* Fitness.xcdatamodeld in Sources */,
 				8744268E2907D6940045CC3A /* Challenge.swift in Sources */,
 				87190971290168F2001D383C /* Color+Extension.swift in Sources */,
