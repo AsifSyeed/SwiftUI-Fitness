@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 final class ChallengListViewModel: ObservableObject {
     private let userService: UserServiceProtocol
     private let challengeService: ChallengeServiceProtocol
+    private var cancellables: [AnyCancellable] = []
     
     init(
         userService: UserServiceProtocol = UserService(),
@@ -17,5 +19,23 @@ final class ChallengListViewModel: ObservableObject {
     ) {
         self.userService = userService
         self.challengeService = challengeService
+        observeChallenges()
+    }
+    
+    private func observeChallenges() {
+        userService.currentUser()
+            .compactMap { $0?.uid }
+            .flatMap { userId -> AnyPublisher<[Challenge], FitnessError> in
+                return self.challengeService.observeChallenge(userId: userId)
+            }.sink { completion in
+                switch completion {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                case .finished:
+                    print("finished")
+                }
+            } receiveValue: { challenges in
+                print(challenges)
+            }.store(in: &cancellables)
     }
 }

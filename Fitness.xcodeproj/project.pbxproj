@@ -208,8 +208,8 @@
 				8719093E290161D6001D383C /* LandingView.swift */,
 				87190972290170CD001D383C /* CreateView.swift */,
 				8719097729017655001D383C /* RemindView.swift */,
-				87B591FA2908116300657CC7 /* TabContainerView.swift */,
 				87144440290909AE007EBBA2 /* ChallengeListView.swift */,
+				87B591FA2908116300657CC7 /* TabContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

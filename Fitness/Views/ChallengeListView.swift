@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChallengeListView: View {
+    @StateObject private var viewModel = ChallengListViewModel()
+    
     var body: some View {
         Text("Challenge List")
     }
