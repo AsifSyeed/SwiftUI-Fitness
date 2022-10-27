@@ -15,10 +15,12 @@ final class ChallengListViewModel: ObservableObject {
     @Published private(set) var itemViewModels: [ChallengeItemViewModel] = []
     @Published private(set) var error: FitnessError?
     @Published private(set) var isLoading = false
+    @Published var showingCreateModal = false
     let title = "Challenges"
     
     enum Action {
         case retry
+        case create
     }
     
     init(
@@ -34,6 +36,8 @@ final class ChallengListViewModel: ObservableObject {
         switch action {
         case .retry:
             observeChallenges()
+        case .create:
+            showingCreateModal = true
         }
     }
     
@@ -56,6 +60,7 @@ final class ChallengListViewModel: ObservableObject {
                 guard let self = self else { return }
                 self.error = nil
                 self.isLoading = false
+                self.showingCreateModal = false
                 self.itemViewModels = challenges.map { .init($0) }
             }.store(in: &cancellables)
     }

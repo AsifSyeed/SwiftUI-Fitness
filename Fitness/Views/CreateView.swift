@@ -29,6 +29,7 @@ struct CreateView: View {
                 }) {
                     Text("Create")
                         .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(.primary)
                 }
             }
         }

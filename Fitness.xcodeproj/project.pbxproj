@@ -175,6 +175,7 @@
 				8719097929017963001D383C /* ViewModels */,
 				874426932907EBA70045CC3A /* Publisher */,
 				875528582905964C007129ED /* Services */,
+				877816F0290A58E300AB4713 /* Errors */,
 				8719096F290168D1001D383C /* Extensions */,
 				8755285529058DFE007129ED /* Supporting Files */,
 				87190940290161D7001D383C /* Assets.xcassets */,
@@ -236,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				87190970290168F2001D383C /* Color+Extension.swift */,
-				874426912907E4A40045CC3A /* FitnessError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,6 +292,14 @@
 				8744268F2907D76C0045CC3A /* ChallengeService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		877816F0290A58E300AB4713 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				874426912907E4A40045CC3A /* FitnessError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		AECCA0009FCBAFE2541AEF2A /* Pods */ = {
