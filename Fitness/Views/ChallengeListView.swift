@@ -11,15 +11,34 @@ struct ChallengeListView: View {
     @StateObject private var viewModel = ChallengListViewModel()
     
     var body: some View {
+        ZStack {
+            if viewModel.isLoading {
+                ProgressView()
+            } else if let error = viewModel.error {
+                VStack {
+                    Text(error.localizedDescription)
+                    Button("Retry") {
+                        viewModel.send(action: .retry)
+                    }
+                    .padding(10)
+                    .background(Rectangle().fill(Color.red).cornerRadius(5))
+                }
+            } else {
+                mainContentView
+            }
+        }
+    }
+    
+    var mainContentView: some View {
         ScrollView {
             VStack {
-                LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
+                LazyVGrid(columns: [.init(.flexible(), spacing: 20), .init(.flexible())], spacing: 20) {
                     ForEach(viewModel.itemViewModels, id: \.self) { viewModel in
                         ChallengeItemView(viewModel: viewModel)
                     }
                 }
                 Spacer()
-            }
+            }.padding(10)
         }.navigationTitle(viewModel.title)
     }
 }
@@ -31,23 +50,41 @@ struct ChallengeItemView: View {
         self.viewModel = viewModel
     }
     
+    var titleRow: some View {
+        HStack {
+            Text(viewModel.title)
+                .font(.system(size: 24, weight: .bold))
+            Spacer()
+            Image(systemName: "trash")
+        }
+    }
+    
+    var dailyIncreaseRow: some View {
+        HStack {
+            Text(viewModel.dailyIncreaseText)
+                .font(.system(size: 24, weight: .bold))
+            Spacer()
+        }
+    }
+    
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                Text(viewModel.title)
-                    .font(.system(size: 24, weight: .bold))
+                titleRow
                 Text(viewModel.statusText)
-                Text(viewModel.dailyIncreaseText)
-            }.padding()
+                    .font(.system(size: 12, weight: .bold))
+                    .padding(25)
+                dailyIncreaseRow
+            }.padding(.vertical, 10)
             Spacer()
         }
         
         .background(
             Rectangle()
-                .fill(Color.darkPrimaryButton)
+                .fill(Color.primaryButton)
                 .cornerRadius(5)
-        ).padding()
+        )
         
     }
 }

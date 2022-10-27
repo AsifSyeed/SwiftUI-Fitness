@@ -13,7 +13,13 @@ final class ChallengListViewModel: ObservableObject {
     private let challengeService: ChallengeServiceProtocol
     private var cancellables: [AnyCancellable] = []
     @Published private(set) var itemViewModels: [ChallengeItemViewModel] = []
+    @Published private(set) var error: FitnessError?
+    @Published private(set) var isLoading = false
     let title = "Challenges"
+    
+    enum Action {
+        case retry
+    }
     
     init(
         userService: UserServiceProtocol = UserService(),
@@ -24,19 +30,32 @@ final class ChallengListViewModel: ObservableObject {
         observeChallenges()
     }
     
+    func send(action: Action) {
+        switch action {
+        case .retry:
+            observeChallenges()
+        }
+    }
+    
     private func observeChallenges() {
         userService.currentUser()
             .compactMap { $0?.uid }
-            .flatMap { userId -> AnyPublisher<[Challenge], FitnessError> in
+            .flatMap { [weak self] userId -> AnyPublisher<[Challenge], FitnessError> in
+                guard let self = self else { return Fail(error: .default()).eraseToAnyPublisher() }
                 return self.challengeService.observeChallenge(userId: userId)
-            }.sink { completion in
+            }.sink { [weak self] completion in
+                guard let self = self else { return }
+                self.isLoading = false
                 switch completion {
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self.error = error
                 case .finished:
                     print("finished")
                 }
-            } receiveValue: { challenges in
+            } receiveValue: { [weak self] challenges in
+                guard let self = self else { return }
+                self.error = nil
+                self.isLoading = false
                 self.itemViewModels = challenges.map { .init($0) }
             }.store(in: &cancellables)
     }
