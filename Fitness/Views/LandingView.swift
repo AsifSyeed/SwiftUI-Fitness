@@ -9,7 +9,47 @@ import SwiftUI
 import CoreData
 
 struct LandingView: View {
-    @State private var isActive = false
+    @State private var viewModel = LandingViewModel()
+    
+    var title: some View {
+        Text(viewModel.title)
+            .font(.system(size: 64,
+                          weight: .bold))
+            .foregroundColor(.white)
+    }
+    
+    var createButton: some View {
+        Button(action: {
+            viewModel.createPushed = true
+        }) {
+            HStack(spacing: 15) {
+                Spacer()
+                Image(systemName: "plus.circle")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                Text("Create a challenge")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+        }.padding(15)
+            .buttonStyle(PrimaryButtonStyle())
+    }
+    
+    var alreadyAccountButton: some View {
+        Button("I already have an account") {
+            viewModel.loginSignupPushed = true
+        }.foregroundColor(.white)
+    }
+    
+    var backgroundImage: some View {
+        Image("fitness_bg")
+            .resizable()
+            .aspectRatio(
+                contentMode: .fill
+            ).overlay(Color.black.opacity(0.4))
+    }
+    
     var body: some View {
         NavigationView {
             GeometryReader { proxy in
@@ -17,40 +57,26 @@ struct LandingView: View {
                     Spacer().frame(
                         height: proxy.size.height * 0.08
                     )
-                    Text("FITNESS")
-                        .font(.system(size: 64,
-                                      weight: .bold))
-                        .foregroundColor(.white)
+                    title
                     Spacer()
-                    NavigationLink(destination:
-                                    CreateView(),
-                                   isActive: $isActive) {
-                        Button(action: {
-                            isActive = true
-                        }) {
-                            HStack(spacing: 15) {
-                                Spacer()
-                                Image(systemName: "plus.circle")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Text("Create a challenge")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-                        }.padding(15)
-                            .buttonStyle(PrimaryButtonStyle())
-                    }
-                }.frame(
+                    NavigationLink(
+                        destination: CreateView(),
+                        isActive: $viewModel.createPushed) {}
+                    createButton
+                    NavigationLink(
+                        destination: LoginSignupView(
+                            viewModel: .init(mode: .login)
+                        ),
+                        isActive: $viewModel.loginSignupPushed){}
+                    alreadyAccountButton
+                }
+                .padding(.bottom, 15)
+                .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity
                 )
                 .background(
-                    Image("fitness_bg")
-                        .resizable()
-                        .aspectRatio(
-                            contentMode: .fill
-                        ).overlay(Color.black.opacity(0.4))
+                    backgroundImage
                         .frame(width: proxy.size.width)
                         .edgesIgnoringSafeArea(.all)
                 )
