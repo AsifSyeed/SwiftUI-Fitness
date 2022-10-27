@@ -13,6 +13,7 @@ struct FitnessApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var appState = AppState()
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     let persistenceController = PersistenceController.shared
 
@@ -20,6 +21,7 @@ struct FitnessApp: App {
         WindowGroup {
             if appState.isLoggedIn {
                 TabContainerView()
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
             } else {
                 LandingView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
