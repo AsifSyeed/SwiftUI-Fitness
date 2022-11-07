@@ -75,7 +75,7 @@ final class CreateChallengeViewModel: ObservableObject {
     
     private func currentUserId() -> AnyPublisher<String, FitnessError> {
         print("getting userId")
-        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, FitnessError> in
+        return userService.currentUserPublisher().flatMap { user -> AnyPublisher<UserId, FitnessError> in
             if let userId = user?.uid {
                 print("user is logged in.......")
                 return Just(userId)
