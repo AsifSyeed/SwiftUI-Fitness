@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct LandingView: View {
-    @State private var viewModel = LandingViewModel()
+    @StateObject private var viewModel = LandingViewModel()
     
     var title: some View {
         Text(viewModel.title)
@@ -65,7 +65,7 @@ struct LandingView: View {
                     createButton
                     NavigationLink(
                         destination: LoginSignupView(
-                            viewModel: .init(mode: .login)
+                            viewModel: .init(mode: .login, isPushed: $viewModel.loginSignupPushed)
                         ),
                         isActive: $viewModel.loginSignupPushed){}
                     alreadyAccountButton
