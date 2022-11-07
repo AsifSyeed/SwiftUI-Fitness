@@ -42,6 +42,8 @@
 		877816FC290A899700AB4713 /* LoginSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877816FB290A899700AB4713 /* LoginSignupViewModel.swift */; };
 		877816FE290A8D6A00AB4713 /* TextFieldCustomRoundedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877816FD290A8D6A00AB4713 /* TextFieldCustomRoundedStyle.swift */; };
 		87B591FB2908116300657CC7 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B591FA2908116300657CC7 /* TabContainerView.swift */; };
+		87DE6B782919124700C7B273 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE6B772919124700C7B273 /* ProgressCircleView.swift */; };
+		87DE6B7A291912E200C7B273 /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE6B79291912E200C7B273 /* ProgressCircleViewModel.swift */; };
 		8AB1BA36492D83723320E20E /* Pods_Fitness_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5837D41F3D21BEC5CBC7B /* Pods_Fitness_FitnessUITests.framework */; };
 		EFEE154B962B0DD4934696F5 /* Pods_FitnessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C67881B7D3E34EC3A219481 /* Pods_FitnessTests.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +107,8 @@
 		877816FB290A899700AB4713 /* LoginSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupViewModel.swift; sourceTree = "<group>"; };
 		877816FD290A8D6A00AB4713 /* TextFieldCustomRoundedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustomRoundedStyle.swift; sourceTree = "<group>"; };
 		87B591FA2908116300657CC7 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
+		87DE6B772919124700C7B273 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		87DE6B79291912E200C7B273 /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
 		A227DF2F86BF2CA6E969F271 /* Pods-Fitness-FitnessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness-FitnessUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fitness-FitnessUITests/Pods-Fitness-FitnessUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C520B11C2AD59C11781B7F54 /* Pods-FitnessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTests.debug.xcconfig"; path = "Target Support Files/Pods-FitnessTests/Pods-FitnessTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEDF3998FF5EB7881D836B71 /* Pods-Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Fitness/Pods-Fitness.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				8719097529017153001D383C /* DropDownView.swift */,
+				87DE6B772919124700C7B273 /* ProgressCircleView.swift */,
 			);
 			path = "Custom Components";
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				877816F5290A686800AB4713 /* SettingsItemViewModel.swift */,
 				877816F7290A82C800AB4713 /* LandingViewModel.swift */,
 				877816FB290A899700AB4713 /* LoginSignupViewModel.swift */,
+				87DE6B79291912E200C7B273 /* ProgressCircleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -581,6 +587,7 @@
 				877816F6290A686800AB4713 /* SettingsItemViewModel.swift in Sources */,
 				87190949290161D7001D383C /* Fitness.xcdatamodeld in Sources */,
 				8744268E2907D6940045CC3A /* Challenge.swift in Sources */,
+				87DE6B782919124700C7B273 /* ProgressCircleView.swift in Sources */,
 				87190971290168F2001D383C /* Color+Extension.swift in Sources */,
 				87144443290909C1007EBBA2 /* ChallengeListViewModel.swift in Sources */,
 				874426902907D76C0045CC3A /* ChallengeService.swift in Sources */,
@@ -591,6 +598,7 @@
 				877816FE290A8D6A00AB4713 /* TextFieldCustomRoundedStyle.swift in Sources */,
 				877816FA290A88FE00AB4713 /* LoginSignupView.swift in Sources */,
 				8719097E29017A1F001D383C /* DropdownItemProtocol.swift in Sources */,
+				87DE6B7A291912E200C7B273 /* ProgressCircleViewModel.swift in Sources */,
 				8719097C2901799E001D383C /* CreateChallengeViewModel.swift in Sources */,
 				87B591FB2908116300657CC7 /* TabContainerView.swift in Sources */,
 				8719097829017655001D383C /* RemindView.swift in Sources */,

@@ -16,4 +16,6 @@ extension Color {
     )
     
     static let primaryButton = Color("primaryButton")
+    static let circleOutline = Color("circleOutline")
+    static let circleTrack = Color("circleTrack")
 }
