@@ -69,5 +69,15 @@ final class ChallengListViewModel: ObservableObject {
     
     private func deleteChallenge(_ challengeId: String) {
         print(challengeId)
+        
+        challengeService.delete(challengeId).sink { completion in
+            switch completion {
+            case let .failure(error):
+                print(error.localizedDescription)
+            case .finished:
+                break
+            }
+        } receiveValue: { _ in }
+            .store(in: &cancellables)
     }
 }

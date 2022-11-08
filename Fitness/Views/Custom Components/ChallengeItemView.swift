@@ -20,7 +20,7 @@ struct ChallengeItemView: View {
                 .font(.system(size: 24, weight: .bold))
             Spacer()
             Image(systemName: "trash").onTapGesture {
-                <#code#>
+                viewModel.tappedDelete()
             }
         }
     }

@@ -29,7 +29,7 @@ struct ProgressCircleView: View {
             .padding(25)
             .font(Font.caption.weight(.semibold))
         }.onAppear {
-            withAnimation(.spring(response: 3)) {
+            withAnimation(.spring(response: 4)) {
                 percentage = CGFloat(viewModel.percentageComplete)
             }
         }
