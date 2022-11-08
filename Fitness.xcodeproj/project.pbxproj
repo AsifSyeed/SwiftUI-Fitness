@@ -34,6 +34,7 @@
 		874426952907EBC50045CC3A /* AuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874426942907EBC50045CC3A /* AuthPublisher.swift */; };
 		8755285729058DFE007129ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8755285629058DFE007129ED /* GoogleService-Info.plist */; };
 		8755285A29059669007129ED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8755285929059669007129ED /* UserService.swift */; };
+		877585CC2919242F00208A0D /* ChallengeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877585CB2919242F00208A0D /* ChallengeItemView.swift */; };
 		877816F2290A679900AB4713 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877816F1290A679900AB4713 /* SettingsView.swift */; };
 		877816F4290A67AB00AB4713 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877816F3290A67AB00AB4713 /* SettingsViewModel.swift */; };
 		877816F6290A686800AB4713 /* SettingsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877816F5290A686800AB4713 /* SettingsItemViewModel.swift */; };
@@ -99,6 +100,7 @@
 		874426942907EBC50045CC3A /* AuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPublisher.swift; sourceTree = "<group>"; };
 		8755285629058DFE007129ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8755285929059669007129ED /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		877585CB2919242F00208A0D /* ChallengeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemView.swift; sourceTree = "<group>"; };
 		877816F1290A679900AB4713 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		877816F3290A67AB00AB4713 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		877816F5290A686800AB4713 /* SettingsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemViewModel.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				8719097529017153001D383C /* DropDownView.swift */,
 				87DE6B772919124700C7B273 /* ProgressCircleView.swift */,
+				877585CB2919242F00208A0D /* ChallengeItemView.swift */,
 			);
 			path = "Custom Components";
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				87190949290161D7001D383C /* Fitness.xcdatamodeld in Sources */,
 				8744268E2907D6940045CC3A /* Challenge.swift in Sources */,
 				87DE6B782919124700C7B273 /* ProgressCircleView.swift in Sources */,
+				877585CC2919242F00208A0D /* ChallengeItemView.swift in Sources */,
 				87190971290168F2001D383C /* Color+Extension.swift in Sources */,
 				87144443290909C1007EBBA2 /* ChallengeListViewModel.swift in Sources */,
 				874426902907D76C0045CC3A /* ChallengeService.swift in Sources */,
