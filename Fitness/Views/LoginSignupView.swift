@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct LoginSignupView: View {
-    @ObservedObject var viewModel: LoginSignupViewModel
+    @StateObject private var viewModel: LoginSignupViewModel
+    @Binding var isPushed: Bool
+    
+    init(mode: LoginSignupViewModel.Mode, isPushed: Binding<Bool>) {
+        self._viewModel = .init(wrappedValue: .init(mode: mode))
+        self._isPushed = isPushed
+    }
     
     var emailTextField: some View {
         TextField(viewModel.emailPlaceHolderText, text: $viewModel.emailText)
@@ -50,6 +56,10 @@ struct LoginSignupView: View {
             passwordTextField
             actionButton
             Spacer()
-        }.padding()
+        }
+        .onReceive(viewModel.$isPushed, perform: { isPushed in
+            self.isPushed = isPushed
+        })
+        .padding()
     }
 }
