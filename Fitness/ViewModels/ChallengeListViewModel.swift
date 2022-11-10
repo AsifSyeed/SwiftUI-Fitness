@@ -21,6 +21,7 @@ final class ChallengListViewModel: ObservableObject {
     enum Action {
         case retry
         case create
+        case timeChange
     }
     
     init(
@@ -38,6 +39,9 @@ final class ChallengListViewModel: ObservableObject {
             observeChallenges()
         case .create:
             showingCreateModal = true
+        case .timeChange:
+            cancellables.removeAll()
+            observeChallenges()
         }
     }
     
@@ -61,9 +65,18 @@ final class ChallengListViewModel: ObservableObject {
                 self.error = nil
                 self.isLoading = false
                 self.showingCreateModal = false
-                self.itemViewModels = challenges.map { .init($0) { [weak self] id in
-                    self?.deleteChallenge(id)
-                }}
+                self.itemViewModels = challenges.map { challenge in
+                    .init(
+                        challenge,
+                        onDelete: { [weak self] id in
+                            self?.deleteChallenge(id)
+                        },
+                        onToggleComplete: { [weak self] id, activities in
+                            self?.updateChallenge(id: id, activities: activities)
+                            
+                        }
+                    )
+                }
             }.store(in: &cancellables)
     }
     
@@ -71,6 +84,18 @@ final class ChallengListViewModel: ObservableObject {
         print(challengeId)
         
         challengeService.delete(challengeId).sink { completion in
+            switch completion {
+            case let .failure(error):
+                print(error.localizedDescription)
+            case .finished:
+                break
+            }
+        } receiveValue: { _ in }
+            .store(in: &cancellables)
+    }
+    
+    private func updateChallenge(id: String, activities: [Activity]) {
+        challengeService.updateChallenge(id, activities: activities).sink { completion in
             switch completion {
             case let .failure(error):
                 print(error.localizedDescription)

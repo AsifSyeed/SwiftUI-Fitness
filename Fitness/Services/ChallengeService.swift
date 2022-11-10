@@ -13,6 +13,7 @@ protocol ChallengeServiceProtocol {
     func create(_ challenge: Challenge) -> AnyPublisher<Void, FitnessError>
     func observeChallenge(userId: UserId) -> AnyPublisher<[Challenge], FitnessError>
     func delete(_ challengeId: String) -> AnyPublisher<Void, FitnessError>
+    func updateChallenge(_ challengeId: String, activities: [Activity]) -> AnyPublisher<Void, FitnessError>
 }
 
 final class ChallengeService: ChallengeServiceProtocol {
@@ -57,6 +58,25 @@ final class ChallengeService: ChallengeServiceProtocol {
     func delete(_ challengeId: String) -> AnyPublisher<Void, FitnessError> {
         return Future<Void, FitnessError> { promise in
             self.db.collection("challenges").document(challengeId).delete { error in
+                if let error = error {
+                    promise(.failure(.default(description: error.localizedDescription)))
+                } else {
+                    promise(.success(()))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func updateChallenge(_ challengeId: String, activities: [Activity]) -> AnyPublisher<Void, FitnessError> {
+        return Future<Void, FitnessError> { promise in
+            self.db.collection("challenges").document(challengeId).updateData(
+                [
+                    "activities": activities.map {
+                        return ["date": $0.date, "isComplete": $0.isComplete]
+                    }
+                ]
+            )
+            { error in
                 if let error = error {
                     promise(.failure(.default(description: error.localizedDescription)))
                 } else {
